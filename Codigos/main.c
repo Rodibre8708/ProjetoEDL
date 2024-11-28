@@ -33,7 +33,7 @@ void comparar_desempenho() {
     TabelaAberta* tabelaAberta = criar_tabela_aberta();
 
     // Gerar dados fictícios para testes
-    const int n = 1000; // Número de registros
+    const int n = 100; // Número de registros
     Cliente clientes[n];
     for (int i = 0; i < n; i++) {
         clientes[i].id = i + 1;
