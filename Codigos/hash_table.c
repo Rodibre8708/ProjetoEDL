@@ -16,11 +16,20 @@ No** criar_tabela_fechada() {
 
 void inserir_fechado(No** tabela, Cliente cliente) {
     unsigned int indice = funcao_hash(cliente.id);
+    
+    // Verifica se já há um elemento na posição
+    if (tabela[indice] != NULL) {
+        printf("Colisão detectada! Índice: %u\n", indice);
+    }
+    
     No* novo = (No*)malloc(sizeof(No));
     novo->cliente = cliente;
-    novo->proximo = tabela[indice];
+    novo->proximo = tabela[indice]; // Adiciona na frente da lista encadeada
     tabela[indice] = novo;
+
+    printf("Cliente armazenado no índice: %u\n", indice);
 }
+
 
 Cliente* buscar_fechado(No** tabela, int id) {
     unsigned int indice = funcao_hash(id);
@@ -77,12 +86,29 @@ TabelaAberta* criar_tabela_aberta() {
 
 void inserir_aberto(TabelaAberta* tabela, Cliente cliente) {
     unsigned int indice = funcao_hash(cliente.id);
+    unsigned int inicial = indice;
+
+    // Verifica colisões usando sondagem linear
+    int colisao = 0;
     while (tabela->entradas[indice].ocupado) {
-        indice = (indice + 1) % TAMANHO_TABELA; // Sondagem linear
+        colisao = 1; // Marca colisão
+        indice = (indice + 1) % TAMANHO_TABELA;
+        if (indice == inicial) {
+            printf("Erro: Tabela cheia. Não foi possível inserir o cliente.\n");
+            return;
+        }
     }
+
+    if (colisao) {
+        printf("Colisão detectada! Realizada sondagem linear.\n");
+    }
+
     tabela->entradas[indice].cliente = cliente;
     tabela->entradas[indice].ocupado = 1;
+
+    printf("Cliente armazenado no índice: %u\n", indice);
 }
+
 
 Cliente* buscar_aberto(TabelaAberta* tabela, int id) {
     unsigned int indice = funcao_hash(id);
