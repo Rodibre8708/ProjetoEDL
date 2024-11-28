@@ -1,7 +1,7 @@
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
 
-#define TAMANHO_TABELA 1000
+#define TAMANHO_TABELA 100
 #define TAMANHO_STRING 50
 
 // Estrutura do cliente
