@@ -142,7 +142,7 @@ void liberar_tabela_aberta(TabelaAberta* tabela) {
 void inserir_fechado_teste(void* clientes) {
     No** tabela = criar_tabela_fechada();
     Cliente* dados = (Cliente*)clientes;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         inserir_fechado(tabela, dados[i]);
     }
     liberar_tabela_fechada(tabela);
@@ -151,10 +151,10 @@ void inserir_fechado_teste(void* clientes) {
 void buscar_fechado_teste(void* clientes) {
     No** tabela = criar_tabela_fechada();
     Cliente* dados = (Cliente*)clientes;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         inserir_fechado(tabela, dados[i]);
     }
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         buscar_fechado(tabela, dados[i].id);
     }
     liberar_tabela_fechada(tabela);
@@ -163,10 +163,10 @@ void buscar_fechado_teste(void* clientes) {
 void remover_fechado_teste(void* clientes) {
     No** tabela = criar_tabela_fechada();
     Cliente* dados = (Cliente*)clientes;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         inserir_fechado(tabela, dados[i]);
     }
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         remover_fechado(tabela, dados[i].id);
     }
     liberar_tabela_fechada(tabela);
@@ -175,7 +175,7 @@ void remover_fechado_teste(void* clientes) {
 void inserir_aberto_teste(void* clientes) {
     TabelaAberta* tabela = criar_tabela_aberta();
     Cliente* dados = (Cliente*)clientes;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         inserir_aberto(tabela, dados[i]);
     }
     liberar_tabela_aberta(tabela);
@@ -184,10 +184,10 @@ void inserir_aberto_teste(void* clientes) {
 void buscar_aberto_teste(void* clientes) {
     TabelaAberta* tabela = criar_tabela_aberta();
     Cliente* dados = (Cliente*)clientes;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         inserir_aberto(tabela, dados[i]);
     }
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         buscar_aberto(tabela, dados[i].id);
     }
     liberar_tabela_aberta(tabela);
@@ -196,10 +196,10 @@ void buscar_aberto_teste(void* clientes) {
 void remover_aberto_teste(void* clientes) {
     TabelaAberta* tabela = criar_tabela_aberta();
     Cliente* dados = (Cliente*)clientes;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         inserir_aberto(tabela, dados[i]);
     }
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         remover_aberto(tabela, dados[i].id);
     }
     liberar_tabela_aberta(tabela);
