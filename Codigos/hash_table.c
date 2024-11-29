@@ -3,12 +3,12 @@
 #include <string.h>
 #include "hash_table.h"
 
-// Função de hash simples
+// Função de hash 
 unsigned int funcao_hash(int chave) {
     return chave % TAMANHO_TABELA;
 }
 
-// ======================= Encadeamento Fechado =======================
+// Encadeamento Fechado 
 No** criar_tabela_fechada() {
     No** tabela = (No**)calloc(TAMANHO_TABELA, sizeof(No*)); // Inicializa com NULL
     return tabela;
@@ -75,7 +75,7 @@ void liberar_tabela_fechada(No** tabela) {
     free(tabela);
 }
 
-// ======================= Encadeamento Aberto =======================
+// Encadeamento Aberto 
 TabelaAberta* criar_tabela_aberta() {
     TabelaAberta* tabela = (TabelaAberta*)malloc(sizeof(TabelaAberta));
     for (int i = 0; i < TAMANHO_TABELA; i++) {
@@ -138,7 +138,7 @@ void liberar_tabela_aberta(TabelaAberta* tabela) {
     free(tabela);
 }
 
-// ======================= Funções de Teste =======================
+//Funções de Teste 
 void inserir_fechado_teste(void* clientes) {
     No** tabela = criar_tabela_fechada();
     Cliente* dados = (Cliente*)clientes;
