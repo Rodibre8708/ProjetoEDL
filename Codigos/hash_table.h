@@ -1,12 +1,13 @@
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
 
-#define TAMANHO_TABELA 100
+// tamanho tabela e tamanho string para o nome
+#define TAMANHO_TABELA 100 
 #define TAMANHO_STRING 50
 
-// Estrutura do cliente
+// struct para receber dados do cliente
 typedef struct {
-    int id; // Identificador único (ex: CPF)
+    int id; // o id é o CPF
     char nome[TAMANHO_STRING];
 } Cliente;
 
