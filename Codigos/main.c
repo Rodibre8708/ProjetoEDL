@@ -4,7 +4,7 @@
 #include <time.h>
 #include "hash_table.h"
 
-// Função para medir tempo de execução
+// medir o tempo de execução de cada funcionalidade
 double medir_tempo(void (*func)(void*), void* argumento) {
     clock_t inicio, fim;
     inicio = clock();
@@ -13,7 +13,7 @@ double medir_tempo(void (*func)(void*), void* argumento) {
     return ((double)(fim - inicio) / CLOCKS_PER_SEC) * 1000.0; // Tempo em ms
 }
 
-// Função para exibir o menu
+// menu de cadastro cpf
 void exibir_menu() {
     printf("\n==== SISTEMA DE CADASTRO DE CLIENTES ====\n");
     printf("1. Inserir cliente (Encadeamento Fechado)\n");
@@ -27,13 +27,13 @@ void exibir_menu() {
     printf("Escolha uma opção: ");
 }
 
-// Função para testar o desempenho de ambas as tabelas
+// comparar os tempos de cada tabela encadeamento
 void comparar_desempenho() {
     No** tabelaFechada = criar_tabela_fechada();
     TabelaAberta* tabelaAberta = criar_tabela_aberta();
 
-    // Gerar dados fictícios para testes
-    const int n = 100; // Número de registros
+    // gera 100 clientes para comparar o tempo
+    const int n = 100; 
     Cliente clientes[n];
     for (int i = 0; i < n; i++) {
         clientes[i].id = i + 1;
@@ -70,7 +70,7 @@ void comparar_desempenho() {
     liberar_tabela_aberta(tabelaAberta);
 }
 
-// Função principal para executar operações
+// função para as operações 
 void executar_operacoes() {
     No** tabelaFechada = criar_tabela_fechada();
     TabelaAberta* tabelaAberta = criar_tabela_aberta();
